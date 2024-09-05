@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Worker</title>
+</head>
+
+<body>
+    <script>
+        function task() {
+            let sum = 0;
+            for (let i = 0; i < 1e9; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        function mainThread() {
+            task();
+            task();
+            task();
+            task();
+            console.log('main thread finished');
+        }
+        mainThread();
+    </script>
+    <h1>Main Thread</h1>
+</body>
+
+</html>

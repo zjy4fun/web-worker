@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Worker</title>
+</head>
+
+<body>
+    <script>
+        function workerThread() {
+            const worker1 = new Worker("worker.js");
+            const worker2 = new Worker("worker.js");
+            const worker3 = new Worker("worker.js");
+            const worker4 = new Worker("worker.js");
+            worker1.postMessage("Hello, Web Worker 1!");
+            worker1.onmessage = function (event) {
+                // console.log("Received message from worker:", event.data);
+                console.log('worker1 finished');
+            }
+            worker2.postMessage("Hello, Web Worker 2!");
+            worker2.onmessage = function (event) {
+                // console.log("Received message from worker:", event.data);
+                console.log('worker2 finished');
+            }
+            worker3.postMessage("Hello, Web Worker 3!");
+            worker3.onmessage = function (event) {
+                // console.log("Received message from worker:", event.data);
+                console.log('worker3 finished');
+            }
+            worker4.postMessage("Hello, Web Worker 4!");
+            worker4.onmessage = function (event) {
+                // console.log("Received message from worker:", event.data);
+                console.log('worker4 finished');
+            }
+        }
+        workerThread();
+    </script>
+    <h1>Web Worker Thread</h1>
+</body>
+
+</html>
