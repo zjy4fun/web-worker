@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Worker</title>
+</head>
+
+<body>
+    <script>
+        function workerThread() {
+            console.time("Web Worker计算耗时");
+            const worker = new Worker("worker.js");
+            worker.postMessage("Hello, Web Worker!");
+            worker.onmessage = function (event) {
+                console.timeEnd("Web Worker计算耗时");
+                console.log("Received message from worker:", event.data);
+            }
+        }
+        workerThread();
+    </script>
+    <h1>Web Worker Thread</h1>
+</body>
+
+</html>
